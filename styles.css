@@ -1,0 +1,71 @@
+/* styles.css */
+
+body {
+    background: linear-gradient(to bottom right, hsla(196, 80%, 84%, 0.992), #bbf1fd); /* Light blue-ish gradient */
+    font-family: Arial, sans-serif; /* Font family */
+    margin: 20px; /* Margin set to 0 */
+}
+
+table {
+    border-collapse: collapse;    /* collapse borders */
+    width: 100%;                  /* 100% width */
+}
+
+td {                                  /* table data */                    
+    border: 1px solid #dddddd;      /* border color */
+    text-align: center;               /* center text */ 
+    padding: 8px;                     /* padding manually set between images */                                  
+}
+
+img {
+    max-width: 100%;                /* 100% width */          
+    height: auto;                  /* auto height */              
+}
+  
+div {
+    margin-bottom: 20px;    /* space below the div */
+    border-bottom: 1px solid #040147;    /* bottom border color */
+}
+
+button {
+    background: linear-gradient(to bottom right, #0073e6, #003366); /* L-->R blue gradient */
+    border: 2px solid #00509e;              /* Dark blue border */
+    color: white;                           /* White text */
+    padding: 7px 14px;                       /* Padding - basically button size */
+    text-align: center;                         /* Center text */           
+    text-decoration: none;                      /* Remove underline */                  
+    display: inline-block;                      /* Display as inline block */
+    font-size:  auto;                           /* Font size */
+    margin: auto;
+    cursor: pointer;                        /* enable cursor attributes*/
+    border-radius: 12px;            /* smooth out corners */
+    
+
+    /* Transition effects -- refer to https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property */
+    
+    transition: background 3.3s ease, transform .03s ease; 
+}
+
+button:hover {
+    background: linear-gradient(to bottom right, #003366, #0073e6); /* Reverse gradient on hover */
+}
+
+button:active {
+    transform: scale(0.98); /* Slightly shrink button on click */
+}
+
+/* Styling for the anchor - a tag */
+a {
+    font-size: x-large; /* Font size */
+    color: #040147; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+/* Styling for story-image custom class */
+.story-image {
+    display: block; 
+    margin: auto; 
+    width: 20%; 
+    border: 5px solid #2f0c0c; /* Add a border  */
+}
