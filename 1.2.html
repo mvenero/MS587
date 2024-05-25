@@ -29,7 +29,9 @@
                 fractional reserve banking to create wealth based on debt is impossible.
             </p>
             <br>
-            <button onclick="downloadStory('story1')">Download Full Story</button>
+            <button onclick="downloadStory('story1')">Download Full Text</button>
+            <button onclick="window.location.href='ebook audio files/story1.mp3'">Download Full Audio</button>
+
             <img src="images\watchman.jpg" alt="The Watch People" class="story-image">
         </div>
             
@@ -39,7 +41,11 @@
                 In the small town of Willow Creek, something strange was happening. Ants, of all creatures, were seen gathering materials and constructing what appeared to be a railroad...
             </p>
             <br>
-            <button onclick="downloadStory('story2')">Download Full Story</button>
+            <button onclick="downloadStory('story2')">Download Full Text</button>
+            <button onclick="window.location.href='ebook audio files/story2.mp3'">Download Full Audio</button>
+
+
+
             <img src="images\Ant Train.jpg" alt="The Ant Railroad" class="story-image">
         </div>
         
@@ -49,7 +55,8 @@
                 Once upon a time, in a remote village surrounded by dense forests, there stood an old abandoned bungalow. The villagers whispered tales of horror and mystery...
             </p>
             <br>
-            <button onclick="downloadStory('story3')">Download Full Story</button>
+            <button onclick="downloadStory('story3')">Download Full Text</button>
+            <button onclick="window.location.href='ebook audio files/story3.mp3'">Download Full Audio</button>
             <img src="images\Bungalo.jpg" alt="The Bungalo" class="story-image">
         </div>
     </header>
@@ -57,7 +64,7 @@
     <script>
         // JavaScript code to download the story content
         function downloadStory(storyID) {
-            // Get the story content and create a blob for the same
+            // Get the story content and create a blob for  same
             var storycontent = document.getElementById(storyID).innerText;
             var blob = new Blob([storycontent], {type: "text/plain"});
             // Create a link element to download the story content
