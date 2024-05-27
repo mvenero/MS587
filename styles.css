@@ -21,7 +21,7 @@ img {
     max-width: 100%;                /* 100% width */          
     height: auto;                  /* auto height */              
 }
-  
+
 div {
     margin-bottom: 20px;    /* space below the div */
     border-bottom: 1px solid #040147;    /* bottom border color */
@@ -35,14 +35,12 @@ button {
     text-align: center;                         /* Center text */           
     text-decoration: none;                      /* Remove underline */                  
     display: inline-block;                      /* Display as inline block */
-    font-size:  auto;                           /* Font size */
+    font-size: auto;                           /* Font size */
     margin: auto;
     cursor: pointer;                        /* enable cursor attributes*/
     border-radius: 12px;            /* smooth out corners */
-    
 
     /* Transition effects -- refer to https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property */
-    
     transition: background 3.3s ease, transform .03s ease; 
 }
 
@@ -65,7 +63,20 @@ a {
 /* Styling for story-image custom class */
 .story-image {
     display: block; 
-    margin: auto; 
+    margin-left: auto; 
+    margin-right: 0; 
     width: 20%; 
     border: 5px solid #2f0c0c; /* Add a border  */
+}
+
+/* Additional styling to align images and text */
+.story-container {
+    display: flex;                      /* Flexbox */
+    justify-content: space-between;     /* Space between */
+    align-items: flex-end;              /* Align items to right (right justify basically)*/
+}
+
+.story-content {
+    flex: 1;
+    margin-right: 20px;
 }
