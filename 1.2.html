@@ -9,8 +9,33 @@
  - Separated each story into its own DIV element.
 -  Defined a story "container" class in order to style in the CSS file.
 -  Added a downloadStory function to download the full story which is generated from the hidden paragraph element.
--->
 
+- Found hugging face NLP API to generate story content.
+- Added 
+
+- Dependencies for the project:
+    - Flask
+    - OpenAI
+    - Python 3.8
+    - Node.js
+    - Torch
+    - Transformers
+    - FaceHugger
+    - TensorFlow    
+
+TODO:
+- Resubmit the story content and get a summary
+- Use summary to generate an AI image
+- Add summary to bottom of the list and dymaically create a new download button
+
+
+PROBLEMS
+- UNCERTAIN HOW TO TAKE THE JSON TEXT AND CONVERT IT TO HTML FOR POSING ON THE PAGE???
+- HOW DO I DYNAMICALLY CREATE A NEW STORY ID AND INCREMENT THE NUMBER FOR EACH NEW STORY BY 1???
+- SHOULD I HAVE NOT USED JSON? ITS PRETTY MUCH THE STANDARD AND IT WORKED WELL IN MY NEWS GENERATION PROJECT FROM THE LAST COURSE?!
+
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,20 +89,45 @@
                 <img src="images/Bungalo.jpg" alt="The Bungalo" class="image-container">
             </div>
         </div>
+
+        <!-- Form for generating text -->
+        <form id="generateTextForm">
+            <label for="prompt">Enter your prompt:</label><br>
+            <input type="text" id="prompt" name="prompt"><br>
+            <button type="button" onclick="generateText()">Generate Text</button>
+        </form>
+
+        <!-- Div to display generated text -->
+        <div id="generatedText"></div>
     </header>
 
     <script>
+        // JavaScript function to generate text
+        function generateText() {
+            var prompt = document.getElementById('prompt').value;
+
+            fetch('/generate_text', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('generatedText').innerHTML = '<h2>Generated Text:</h2><p>' + data.generated_text + '</p>';
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
         // JavaScript code to download the story content
         function downloadStory(storyID) {
-            // Get the story content and create a blob for the same
             var storycontent = document.getElementById(storyID).innerText;
             var blob = new Blob([storycontent], {type: "text/plain"});
-            // Create a link element to download the story content
             var link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = storyID + ".txt"; // story ID = file name --- plus .txt extension
-                   
-            link.click(); // call the click event manually
+            link.download = storyID + ".txt"; 
+            link.click(); 
         }
     </script>
 
@@ -86,8 +136,7 @@
         The Watch People is a story about a group of people who live in a world where time is currency. In this world,
         fractional reserve banking to create wealth based on debt is impossible. It would fracture the entire universe and result in 
         a time paradox of epic proportions greater than that in the hit film from 1989, MILLENNIUM, where an NTSB investigator
-        discovers a time-traveling woman while investigating an airplane crash. This is real, not AI generated. It's a great film, 
-        everyone should see it.
+        discovers a time-traveling woman while investigating an airplane crash. This is real, not AI         generated. It's a great film, everyone should see it.
     </p>
 
     <p id="story2" style="display: none;">
@@ -117,3 +166,4 @@
     </p>
 </body>
 </html>
+
