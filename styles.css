@@ -1,82 +1,97 @@
-/* styles.css */
+/* WEEK OF 5.27.2024 - 6.2.2024
+- reworked CSS in depth to account for most of the styling hopefully
+- but tried to keep it relatively simple but still comprehensive.
 
-body {
-    background: linear-gradient(to bottom right, hsla(196, 80%, 84%, 0.992), #bbf1fd); /* Light blue-ish gradient */
-    font-family: Arial, sans-serif; /* Font family */
-    margin: 20px; /* Margin set to 0 */
+references:
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+https://www.youtube.com/watch?v=G3e-cpL7ofc
+https://www.dhs.state.il.us/accessibility/references/css-quick-reference.html
+https://www.youtube.com/watch?v=n4R2E7O-Ngo
+https://nicepage.com/css-templates
+*/
+
+/* Set the background of the body to a gradient from darker blue to lighter blue,
+   use Arial or sans-serif font family, apply light text color, and set a margin of 20px */
+   body {
+    background: linear-gradient(to bottom right, #2a4d85, #3a699d); /* Lighter blue gradient */
+    font-family: Arial, sans-serif; /* Font */
+    margin: 20px; /* Margin set to 20px */
+    color: #f0f0f0; /* Light text color */
 }
 
-table {
-    border-collapse: collapse;    /* collapse borders */
-    width: 100%;                  /* 100% width */
+/* Style for the main container that holds the bulk of the content */
+.container {
+    max-width: 800px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Padding inside the container */
+    background: #3b516a; /* Lighter background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
+    text-align: center; /* Center the text inside the container */
 }
 
-td {                                  /* table data */                    
-    border: 1px solid #dddddd;      /* border color */
-    text-align: center;               /* center text */ 
-    padding: 8px;                     /* padding manually set between images */                                  
+/* Style for h1 heading */
+h1 {
+    font-size: 2em; /* Font size for h1 heading */
+    color: #ffffff; /* Lighter blue headings */
 }
 
-img {
-    max-width: 100%;                /* 100% width */          
-    height: auto;                  /* auto height */              
+/* Style for the sub-heading h2 */
+h2 {
+    font-size: 1.75em; /* Font size for h2 sub-headings */
+    margin: 15px 0; /* Margin for h2 sub-headings */
+    color: #ffffff; /* Color for h2 sub-headings */
 }
 
-div {
-    margin-bottom: 20px;    /* space below the div */
-    border-bottom: 1px solid #040147;    /* bottom border color */
+/* Style for the section heading h3 */
+h3 {
+    font-size: 1.5em; /* Font size for h3 section headings */
+    margin: 10px 0; /* Margin for h3 section headings */
+    color: #ffffff; /* Color for h3 section headings */
 }
 
-button {
-    background: linear-gradient(to bottom right, #0073e6, #003366); /* L-->R blue gradient */
-    border: 2px solid #00509e;              /* Dark blue border */
-    color: white;                           /* White text */
-    padding: 7px 14px;                       /* Padding - basically button size */
-    text-align: center;                         /* Center text */           
-    text-decoration: none;                      /* Remove underline */                  
-    display: inline-block;                      /* Display as inline block */
-    font-size: auto;                           /* Font size */
-    margin: auto;
-    cursor: pointer;                        /* enable cursor attributes*/
-    border-radius: 12px;            /* smooth out corners */
-
-    /* Transition effects -- refer to https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property */
-    transition: background 3.3s ease, transform .03s ease; 
+/* Style for the summary text */
+.summary {
+    font-size: 1.2em; /* Font size for summary text */
+    margin: 20px 0; /* Margin for summary text */
+    color: #ecf0f1; /* Color for summary text */
 }
 
-button:hover {
+/* Style for the image/photo container */
+.image-container {
+    text-align: center; /* Center image within container */
+    margin: 20px 0; /* Margin for image container */
+    max-width: calc(100% - 40px); /* Maximum width of image container */
+}
+
+/* Style for the image inside the image container */
+.image-container img {
+    max-width: 100%; /* Maximum width of image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #5da9e9; /* Border color */
+}
+
+/* Style for button container */
+.button-container {
+    text-align: center; /* Center buttons */
+    margin: 20px 0; /* Margin for button container */
+}
+
+/* Style for the download button */
+.download-button {
+    background: #3a7bb9; /* Button background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 15px 30px; /* Padding */
+    font-size: 1em; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    text-decoration: none; /* Remove underline */
+    transition: background 0.3s ease; /* Transition effect */
+}
+
+/* Style for the download button on hover */
+.download-button:hover {
     background: linear-gradient(to bottom right, #003366, #0073e6); /* Reverse gradient on hover */
-}
-
-button:active {
-    transform: scale(0.98); /* Slightly shrink button on click */
-}
-
-/* Styling for the anchor - a tag */
-a {
-    font-size: x-large; /* Font size */
-    color: #040147; 
-    font-weight: bold; 
-    text-decoration: none; 
-}
-
-/* Styling for story-image custom class */
-.story-image {
-    display: block; 
-    margin-left: auto; 
-    margin-right: 0; 
-    width: 20%; 
-    border: 5px solid #2f0c0c; /* Add a border  */
-}
-
-/* Additional styling to align images and text */
-.story-container {
-    display: flex;                      /* Flexbox */
-    justify-content: space-between;     /* Space between */
-    align-items: flex-end;              /* Align items to right (right justify basically)*/
-}
-
-.story-content {
-    flex: 1;
-    margin-right: 20px;
 }
